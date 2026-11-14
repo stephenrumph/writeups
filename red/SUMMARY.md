@@ -12,5 +12,5 @@
   * [The Fifth Element (1997)](film-reviews/the-fifth-element-1997.md)
 * [Drawing Practice](drawing-practice.md)
 * [Electronics Projects](electronics.md)
-* [Blog](blog/README.md)
-  * [De-Googling, Day 1: Moving to Proton](blog/de-googling-day-1.md)
+* [De-Googling](de-googling/README.md)
+  * [De-Googling, Day 1: Moving to Proton](de-googling/de-googling-day-1.md)

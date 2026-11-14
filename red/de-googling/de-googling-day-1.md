@@ -1,3 +1,7 @@
+---
+icon: envelope
+---
+
 # De-Googling, Day 1: Moving to Proton
 
 Today I started moving away from Google and committed to the full Proton suite. I had paid for a full year of a family plan, so it made sense to consolidate everything there instead of paying for overlapping services.
