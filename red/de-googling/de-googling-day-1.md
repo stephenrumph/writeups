@@ -37,14 +37,37 @@ Sieve only affects new mail, so old mail has to be tidied by hand.
 
 ### 5. Fixing the Brave extension issue
 
-* The browser extension in Brave couldn't detect its desktop app.
-* After some troubleshooting it now connects properly.
+The Proton Pass extension in Brave refused to turn on biometric unlock. It reported that the desktop app was not installed, even though the app was installed, signed in and on the same version as the extension.
+
+**What was going on**
+
+The extension talks to the desktop app through a browser feature called native messaging. For that to work, the app has to leave a small connection file in the browser's own folder. Brave's folder was completely empty, and a search of the whole machine showed the app hadn't registered itself with any browser. The extension therefore had no way to find the app.
+
+**What I tried first (didn't fix it)**
+
+* Quitting and reopening both the app and Brave, in different orders.
+* Reinstalling the desktop app from the official download, after removing a package-manager copy.
+* Reinstalling the extension from the Chrome Web Store and updating Brave.
+
+**What fixed it**
+
+1. Check Brave's native messaging folder to confirm it was empty.
+2. Create the missing connection file by hand. It names the Proton Pass host, points to the helper program inside the desktop app, and lists the extension IDs that are allowed to use it.
+3. Confirm the helper program inside the app is executable.
+4. Leave the desktop app running, fully quit Brave, reopen it, and enable biometrics again.
+
+{% hint style="info" %}
+The file is a single small JSON file, so it's easy to undo by deleting it. I've left the exact contents out of this post.
+{% endhint %}
+
+If you hit the same error, it's also worth reporting to Proton Support, since the app should create that file itself.
 
 ## What I learned
 
 * Do the security setup first, then import.
 * Folders and labels can't share a name in Proton.
 * Filters are for the future; cleaning the backlog is a separate job.
+* "App not installed" in a browser extension often means "can't reach the app", so check the native messaging folder.
 * Paying for a bundle is a good reason to actually consolidate.
 
 ## Next
